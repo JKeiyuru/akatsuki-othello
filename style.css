@@ -45,3 +45,51 @@ h1, h2 {
 .disc.highlight {
     animation: pulse 1s infinite alternate;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: greenyellow;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+h1, h2 {
+    color: black;
+}
+
+
+.cell {
+    aspect-ratio: 1;
+    background-color: #8BC34A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disc {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.disc.black {
+    background-color: black;
+}
+
+.disc.white {
+    background-color: white;
+}
+
+.disc.highlight {
+    animation: pulse 1s infinite alternate;
+}
