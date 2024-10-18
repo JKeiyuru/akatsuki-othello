@@ -1,19 +1,24 @@
-const initialBoard = [
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 2, 1, 0, 0, 0],
-    [0, 0, 0, 1, 2, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0]
-];
+// Function for creating a game board 
+function createBoard(containerId, initialState = null) {
+    const container = document.getElementById(containerId);
+    const board = document.createElement('div');
+    board.style.display = 'grid';
+    board.style.gridTemplateColumns = 'repeat(8, 1fr)';
+    board.style.gap = '2px';
+    board.style.width = '400px';
+    board.style.margin = '20px auto';
 
-const sampleMoves = [
-    { row: 3, col: 2, player: 1, explanation: "Black places a disc at D3, outflanking White's disc at D4. The White disc is flipped to Black." },
-    { row: 2, col: 4, player: 2, explanation: "White responds by placing a disc at E3, outflanking Black's disc at E4. The Black disc is flipped to White." },
-    { row: 2, col: 3, player: 1, explanation: "Black places a disc at D3, outflanking White's disc at D4. This move creates a diagonal line of Black discs." },
-    { row: 4, col: 2, player: 2, explanation: "White places a disc at C5, outflanking Black's disc at D4. This move flips two Black discs to White." },
-    { row: 5, col: 3, player: 1, explanation: "Black places a disc at D6, outflanking White's disc at D5. This move strengthens Black's position on the left side of the board." }
-    // Add more moves as needed
-];
+    for (let i = 0; i < 64; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        const disc = document.createElement('div');
+        disc.classList.add('disc');
+        cell.appendChild(disc);
+        board.appendChild(cell);
+    }
+
+    container.appendChild(board);
+
+    if (initialState) {
+        updateBoard(containerId, initialState);
+    }

@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -8,7 +9,7 @@ body {
 }
 
 header {
-    background-color: greenyellow;
+    background-color: greenyellow; 
     color: white;
     text-align: center;
     padding: 1rem;
