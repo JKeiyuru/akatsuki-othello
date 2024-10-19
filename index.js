@@ -22,3 +22,27 @@ function createBoard(containerId, initialState = null) {
     if (initialState) {
         updateBoard(containerId, initialState);
     }
+    function updateBoard(containerId, state) {
+        const container = document.getElementById(containerId);
+        const cells = container.querySelectorAll('.cell');
+        state.forEach((row, i) => {
+            row.forEach((cell, j) => {
+                const disc = cells[i * 8 + j].querySelector('.disc');
+                disc.className = 'disc';
+                if (cell === 'B') disc.classList.add('black');
+                if (cell === 'W') disc.classList.add('white');
+            });
+        });
+    }
+    
+    // Initial board state
+    const initialState = [
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', 'W', 'B', ' ', ' ', ' '],
+        [' ', ' ', ' ', 'B', 'W', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    ];
